@@ -1,0 +1,58 @@
+<%- include ../layouts/header.ejs %>
+
+        <br/>
+        <table class="table table-light">
+            
+            
+            <thead class="thead-light">
+                <tr>
+                    <th>#</th>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>Color</th>
+                    <th> </th>
+                    <th> </th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for( let carro = 0; carro < carros.length; carro++ ) { %>
+                    <tr>
+                        
+                        <td> <%=carros[carro].id%> </td>
+                        <td> <%=carros[carro].marca%> </td>
+                        <td> <%=carros[carro].modelo%> </td>
+                        <td> <%=carros[carro].color%> </td>
+                        <td> 
+                            <img class="img-thumbnail" width="300" src="images/<%=carros[carro].imagen%>" alt="">
+                            
+                        </td>
+                        <td>  
+                            <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                                <form class="form-inline" method="get" action="/carros/modificar/<%=carros[carro].id%>">
+                                    <button class="btn btn-warning" type="submit">Modificar</button>
+                                </form>
+                            </div>
+                            <br/>
+                            <br/>
+                            <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                                <form class="form-inline" method="post" action="/carros/eliminar/<%=carros[carro].id%>">
+                                    <button class="btn btn-danger"  type="submit"> Borrar</button>
+                                </form>
+                            </div>
+                             
+                            
+                            <br/>
+                        </td>
+                        
+                    </tr>
+                    
+                <% } %>
+                    
+    
+            </tbody>
+            
+        </table>
+        <a href="/carros/agregar" class="btn btn-primary" type="button">Agregar Carro</a>
+        <br/>
+
+<%- include ../layouts/footer.ejs %>

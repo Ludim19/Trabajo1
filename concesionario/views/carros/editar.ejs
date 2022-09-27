@@ -1,0 +1,38 @@
+<%- include ../layouts/header.ejs %>
+<br/>
+<div class="card">
+    <div class="card-header">
+        Editar Carro
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Datos del Carro</h5>
+        <p class="card-text">
+
+           <form method="post" action="../actualizacion/" enctype="multipart/form-data" >
+    <input type="hidden" name="ID" value="<%=carro.id%>">
+    <div class="form-group">
+        <label for="my-input">Marca:</label>
+        <input id="my-input" value="<%=carro.marca%>" class="form-control" type="text" name="marca">
+    </div>
+    <div class="form-group">
+        <label for="my-input">Modelo:</label>
+        <input id="my-input" value="<%=carro.modelo%>" class="form-control" type="text" name="modelo">
+    </div>
+    <div class="form-group">
+        <label for="my-input">Color:</label>
+        <input id="my-input" value="<%=carro.color%>" class="form-control" type="text" name="color">
+    </div>
+    <div class="form-group">
+        <label for="my-input">Imagen:</label>
+        <br/>
+        <img class="img-thumbnail" width="600" src="../../images/<%=carro.imagen%>" alt="">
+        <input id="my-input" class="form-control-file" type="file" name="imagen">
+    </div>
+    <button class="btn btn-success" type="submit">Modificar</button>
+    <a class="btn btn-danger" href="/carros">Cancelar</a>
+</form> 
+        </p>
+    </div>
+</div>
+
+<%- include ../layouts/footer.ejs %>
